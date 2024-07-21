@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+      .textColor {
+        color: red;
+      }
+
+      .border-highlight {
+        border: 5px solid red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="task_1">change element text</h1>
+
+    <h2 class="task_2">change background color</h2>
+
+    <h2 id="task_5">Remove element</h2>
+
+    <ul id="list">
+      <li>task 1</li>
+      <li>task 2</li>
+      <li>task 3</li>
+    </ul>
+
+    <a id="attribute" href="https://www.google.com">Change Attributes</a>
+
+    <p id="addCss" class="textColor">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti dolores
+      est, aliquid exercitationem consectetur vitae natus soluta doloremque?
+      Alias, veritatis?
+    </p>
+
+    <p id="text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut accusamus
+      tempore et, minus nostrum delectus sit perspiciatis commodi inventore,
+      atque repellat blanditiis! Cupiditate eum fuga non soluta accusamus eos
+      alias?
+    </p>
+
+    <button onclick="changeText()">change text</button>
+
+    <h1 id="myElement">Mouse over to change border color</h1>
+  </body>
+
+  <script>
+    // Day 9: Dom Manipulation
+
+    // Activity 1: Selecting and manipulating elements
+
+    // Task 1:
+
+    const task_1 = document.getElementById("task_1");
+    task_1.innerText = "Task 1 completed !";
+
+    // Task 2:
+
+    const task_2 = document.getElementsByClassName("task_2");
+
+    task_2[0].style.backgroundColor = "#1f2f3f";
+
+    // Activity 2: Creating and Appending Elements
+
+    // Task 3:
+
+    let newDiv = document.createElement("div");
+
+    newDiv.textContent = "Hello, I am a new div! of Task 3";
+
+    document.body.appendChild(newDiv);
+    // Task 4:
+
+    let listItem = document.createElement("li");
+
+    listItem.textContent = "New task added";
+
+    let unorderList = document.getElementById("list");
+
+    unorderList.appendChild(listItem);
+
+    // Activity 3: Removing Elements
+
+    // Task 5:
+
+    let removeItem = document.getElementById("task_5");
+
+    removeItem.remove();
+
+    //  Task 6:
+
+    let listItems = document.getElementById("list");
+
+    listItems.removeChild(listItems.lastChild);
+
+    // Activity 4:Modifying Attributes and classes
+
+    // Task 7:
+
+    let changeAttribute = document.getElementById("attribute");
+
+    changeAttribute.setAttribute("href", "https://www.facebook.com");
+
+    // Task 8:
+
+    document.body.classList.add("highlight");
+
+    let addCss = document.getElementById("addCss");
+
+    addCss.classList.remove("textColor");
+    // Activity 5: Event Handling
+
+    // Task 9:
+
+    function changeText() {
+      let para = document.getElementById("text");
+      para.innerText = "we changed the text of paragraph !";
+    }
+
+    // Task 10:
+
+    let element = document.getElementById("myElement");
+
+    element.addEventListener("mouseover", function () {
+      element.classList.add("border-highlight");
+    });
+    element.addEventListener("mouseout", function () {
+      element.classList.remove("border-highlight");
+    });
+  </script>
+</html>

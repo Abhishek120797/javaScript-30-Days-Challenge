@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .hidden {
+        opacity: 0; /* Make the element invisible but still clickable */
+        pointer-events: none; /* Make the element non-interactive */
+      }
+
+      .visible {
+        opacity: 1; /* Make the element fully visible */
+        pointer-events: auto; /* Make the element interactive */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="task_1">Task 1</button>
+    <h1 id="text">Heading text</h1>
+
+    <img
+      id="myImage"
+      src="./smartPhone1.jpg"
+      alt="Smart Phone"
+      height="200px"
+      width="120px"
+      class="visible"
+    />
+
+    <div
+      id="background"
+      style="height: 300px; width: 200px; background-color: #21669b"
+    >
+      background color chages on mouseover
+    </div>
+
+    <label for="inputField">Task 5 : </label
+    ><input type="text" id="inputField" placeholder="Type something..." />
+
+    <p id="displayParagraph"></p>
+
+    <form id="myForm" action="">
+      <label for="email">Email : </label>
+      <input type="email" name="email" id="email" /><br />
+      <label for="password">Password : </label>
+      <input type="password" name="password" id="password" /><br />
+      <button>Submit</button>
+    </form>
+
+    <label for="mySelect">Choose an option:</label>
+    <select id="mySelect">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
+    <p id="selectedValue">Selected: None</p>
+
+    <ul id="list">
+      <li>1 list</li>
+      <li>2 list</li>
+      <li>3 list</li>
+      <li>4 list</li>
+    </ul>
+
+    <button id="addItemButton">Add list item</button>
+  </body>
+
+  <script>
+    // Day 10: Event Handling
+
+    // Activity 1: Basic Event Handling
+
+    // Task 1:
+    let task_1 = document.getElementById("task_1");
+
+    function changeText() {
+      let text = document.getElementById("text");
+      text.innerText = "Text changed !";
+    }
+
+    task_1.addEventListener("click", changeText);
+
+    // Task 2:
+
+    let myImage = document.getElementById("myImage");
+
+    function changeVisibility() {
+      if (myImage.classList.contains("visible")) {
+        myImage.classList.remove("visible");
+        myImage.classList.add("hidden");
+      } else {
+        myImage.classList.remove("hidden");
+        myImage.classList.add("visible");
+      }
+    }
+
+    myImage.addEventListener("dblclick", changeVisibility);
+
+    // Activity 2: Mouse Events
+
+    // Task 3:
+
+    let background = document.getElementById("background");
+
+    function changeBackGroundColor() {
+      background.style.backgroundColor = "#ffffff";
+    }
+
+    background.addEventListener("mouseover", changeBackGroundColor);
+
+    // Task 4:
+
+    function resetBackGroundColor() {
+      background.style.backgroundColor = "#21669b";
+    }
+
+    background.addEventListener("mouseout", resetBackGroundColor);
+
+    // Activity 3:Keyboard events
+
+    // Task 5:
+
+    let inputField = document.getElementById("inputField");
+
+    function logKeyPressed(event) {
+      console.log(event.key);
+    }
+
+    inputField.addEventListener("keydown", logKeyPressed);
+
+    // Task 6:
+
+    function displeyValue(event) {
+      let paragraph = document.getElementById("displayParagraph");
+      paragraph.innerText = inputField.value;
+    }
+
+    inputField.addEventListener("keyup", displeyValue);
+
+    // Activity 4: Form events
+
+    // Task 7:
+
+    let form = document.getElementById("myForm");
+
+    function printFormData(event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+
+      for (let [key, value] of formData) {
+        console.log(`${key}: ${value}`);
+      }
+    }
+
+    form.addEventListener("submit", printFormData);
+
+    // Task 8:
+
+    let selectElement = document.getElementById("mySelect");
+    let displayParagraph = document.getElementById("selectedValue");
+
+    function updateParagraph(event) {
+      console.log(event);
+      let selectedOption = event.target.options[event.target.selectedIndex];
+      let selectedValue = selectedOption.value;
+      let selectedText = selectedOption.text;
+
+      displayParagraph.innerText = `Selected: ${selectedText} (${selectedValue})`;
+    }
+
+    selectElement.addEventListener("change", updateParagraph);
+
+    // Activity 5:Event delegation
+
+    // Task 9:
+
+    let list = document.getElementById("list");
+
+    function logListItem(event) {
+      if (event.target && event.target.nodeName === "LI") {
+        console.log(`Clicked item: ${event.target.textContent}`);
+      }
+    }
+
+    list.addEventListener("click", logListItem);
+
+    // Task 10:
+
+    const addItemButton = document.getElementById("addItemButton");
+
+    function addItem() {
+      const listItem = document.createElement("li");
+      listItem.textContent = `${list.children.length + 1} list`;
+
+      list.appendChild(listItem);
+    }
+
+    addItemButton.addEventListener("click", addItem);
+  </script>
+</html>

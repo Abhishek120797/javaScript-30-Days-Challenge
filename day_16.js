@@ -1,3 +1,7 @@
+// Day 16: Recursion
+
+// Activity 1:
+
 // Task 1:
 
 function factorial(num) {
@@ -24,6 +28,8 @@ console.log("1st term in febonacci series is ", febonacciNthTerm(1));
 console.log("2nd term in febonacci series is ", febonacciNthTerm(2));
 console.log("3rd term in febonacci series is ", febonacciNthTerm(3));
 
+// Activity 2:
+
 // Task 3:
 
 function sumArrayElement(arr) {
@@ -49,6 +55,8 @@ function findMax(arr) {
 
 const maxArr = [1, 8, 6, 7, 14, 56, 0, 3, 6, 9];
 console.log("Max element is array ", maxArr, " is ", findMax(maxArr));
+
+// Activity 3:
 
 // task 5:
 
@@ -78,6 +86,8 @@ function isPalindrome(str) {
 console.log(isPalindrome("racecar"));
 console.log(isPalindrome("level"));
 console.log(isPalindrome("madam"));
+
+// Activity 4:
 
 // Task 7:
 
@@ -122,6 +132,8 @@ const duplicatArr = [
 
 let count = countOccurence(duplicatArr, 1);
 console.log("accurence of 1 is ", count);
+
+// Activity:5
 
 // Task 9:
 

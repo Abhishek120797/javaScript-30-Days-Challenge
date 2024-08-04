@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function clearStorage() {
+      localStorage.clear();
+      sessionStorage.clear();
+      if (localStorage.length === 0) {
+        console.log("Local storage is empty");
+      } else {
+        console.log("Local storage is not empty");
+      }
+      if (sessionStorage.length === 0) {
+        console.log("session storage is empty");
+      } else {
+        console.log("session storage is not empty");
+      }
+    }
+
+    clearStorage();
+  </script>
+</html>

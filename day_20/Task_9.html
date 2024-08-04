@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparing LocalStorage and SessionStorage</title>
+  </head>
+  <body></body>
+  <script>
+    function saveOnStorage(key, value) {
+      localStorage.setItem(key, value);
+      sessionStorage.setItem(key, value);
+
+      let localValue = localStorage.getItem(key);
+      let sessionValue = sessionStorage.getItem(key);
+
+      console.log(`local storage key: ${key} and value: ${localValue}`);
+      console.log(`session storage key: ${key} and value: ${sessionValue}`);
+    }
+
+    saveOnStorage("email", "abhi.demo@gmail.com");
+  </script>
+</html>

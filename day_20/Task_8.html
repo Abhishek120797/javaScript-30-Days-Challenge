@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usining SessionStorage</title>
+  </head>
+  <body></body>
+  <script>
+    // Task 4:
+
+    sessionStorage.setItem("First_name", "Abhishek");
+    sessionStorage.setItem("Last_name", "Jaiswal");
+    console.log(
+      `Local storage before removal: ${sessionStorage.getItem(
+        "First_name"
+      )} ${sessionStorage.getItem("Last_name")}`
+    );
+    sessionStorage.removeItem("Last_name");
+    console.log(
+      `Local storage after removal: ${sessionStorage.getItem(
+        "First_name"
+      )} ${sessionStorage.getItem("Last_name")}`
+    );
+  </script>
+</html>

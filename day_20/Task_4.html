@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using LocalStorage</title>
+  </head>
+  <body></body>
+  <script>
+    // Task 4:
+
+    localStorage.setItem("First_name", "Abhishek");
+    localStorage.setItem("Last_name", "Jaiswal");
+    console.log(
+      `Local storage before removal: ${localStorage.getItem(
+        "First_name"
+      )} ${localStorage.getItem("Last_name")}`
+    );
+    localStorage.removeItem("Last_name");
+    console.log(
+      `Local storage after removal: ${localStorage.getItem(
+        "First_name"
+      )} ${localStorage.getItem("Last_name")}`
+    );
+  </script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding Session Storage</title>
+  </head>
+  <body></body>
+  <script>
+    // Task 5:
+    sessionStorage.setItem("email", "demo@gmail.com");
+    sessionStorage.setItem("password", "demo1211");
+    console.log(sessionStorage.getItem("email"));
+    console.log(sessionStorage.getItem("password"));
+
+    // Task 6:
+
+    const user = {
+      name: "Abhishek Jaiswal",
+      age: 27,
+      gender: "Male",
+      email: "abhi.jais1211@gmail.com",
+    };
+
+    const jsonString = JSON.stringify(user);
+    sessionStorage.setItem("user", jsonString);
+    const data = sessionStorage.getItem("user");
+    const parsedObject = JSON.parse(data);
+
+    console.log(parsedObject);
+  </script>
+</html>

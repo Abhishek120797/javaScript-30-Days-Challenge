@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using SessionStorage</title>
+  </head>
+  <body>
+    <form id="registrationForm">
+      <input
+        type="text"
+        name="fName"
+        id="fName"
+        placeholder="First Name"
+        required
+      />
+
+      <br />
+
+      <input
+        type="text"
+        name="lName"
+        id="lName"
+        placeholder="Last Name"
+        required
+      />
+
+      <br />
+
+      <label>Gender : </label>
+      <input type="radio" name="gender" id="male" value="male" required />
+      <label for="male">MALE</label>
+      <input type="radio" name="gender" id="female" value="female" required />
+      <label for="female">FEMALE</label>
+      <input type="radio" name="gender" id="other" value="other" required />
+      <label for="other">OTHER</label>
+
+      <br />
+
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="E-mail"
+        required
+      />
+
+      <br />
+
+      <input type="submit" value="Submit" />
+      <input type="reset" />
+    </form>
+  </body>
+  <script>
+    // Task 3:
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const storedData = sessionStorage.getItem("formData");
+      if (storedData) {
+        const formData = JSON.parse(storedData);
+        document.getElementById("fName").value = formData.fName;
+        document.getElementById("lName").value = formData.lName;
+        document.querySelector(
+          `input[name='gender'][value='${formData.gender}']`
+        ).checked = true;
+        document.getElementById("email").value = formData.email;
+      }
+    });
+
+    document
+      .getElementById("registrationForm")
+      .addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const formData = {
+          fName: document.getElementById("fName").value,
+          lName: document.getElementById("lName").value,
+          gender: document.querySelector("input[name='gender']:checked").value,
+          email: document.getElementById("email").value,
+        };
+
+        sessionStorage.setItem("formData", JSON.stringify(formData));
+        console.log("Form data saved to local storage:", formData);
+
+        event.target.reset();
+      });
+  </script>
+</html>

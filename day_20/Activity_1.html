@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding LocalStorage</title>
+  </head>
+  <body></body>
+  <script>
+    // Task 1:
+
+    localStorage.setItem("first_name", "Abhishek");
+    localStorage.setItem("last_name", "Jaiswal");
+    let name =
+      localStorage.getItem("first_name") +
+      " " +
+      localStorage.getItem("last_name");
+    console.log(`Full Name : ${name}`);
+
+    // Task 2:
+
+    const user = {
+      name: "Abhishek Jaiswal",
+      age: 27,
+      gender: "Male",
+      email: "abhi.jais1211@gmail.com",
+    };
+
+    const jsonString = JSON.stringify(user);
+    localStorage.setItem("user", jsonString);
+    const data = localStorage.getItem("user");
+    const parsedObject = JSON.parse(data);
+
+    console.log(parsedObject);
+  </script>
+</html>
